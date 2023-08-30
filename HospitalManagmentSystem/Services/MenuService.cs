@@ -11,10 +11,15 @@ namespace HospitalManagmentSystem.Services
     {
         static HospitalService hospitalService = new();
         
-        static void DisplayDoctors()
+        public static void DisplayDoctors()
         {
             var table = new ConsoleTable("No", "Fullname", "Department", "Session Price");
 
+            foreach (var doctor in hospitalService.Doctors)
+            {
+                table.AddRow(doctor.No, doctor.Fullname, doctor.Department, doctor.PricePerSession.ToString("#.00"));
+            }
+            table.Write();
         }
     }
 }

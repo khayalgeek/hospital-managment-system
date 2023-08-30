@@ -8,7 +8,9 @@ namespace HospitalManagmentSystem
        
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var menu = new EasyConsole.Menu()
+                .Add("Doctors", () => MenuService.DisplayDoctors());
+            menu.Display();
         }
     }
 }

@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "HospitalManagmentSystem/1.0.0": {
+        "dependencies": {
+          "ConsoleTables": "2.5.0",
+          "EasyConsole": "1.1.0"
+        },
+        "runtime": {
+          "HospitalManagmentSystem.dll": {}
+        }
+      },
+      "ConsoleTables/2.5.0": {
+        "runtime": {
+          "lib/netstandard2.1/ConsoleTables.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.5.0.0"
+          }
+        }
+      },
+      "EasyConsole/1.1.0": {
+        "runtime": {
+          "lib/net452/EasyConsole.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HospitalManagmentSystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConsoleTables/2.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lfXLGH1coDInONveyIW5ufJWT/P5KbMRRV0cbR7CBnoZLNLZeTY51QUrAmtsX+gIWj7xlY9FSmg1sBYhXMmuuw==",
+      "path": "consoletables/2.5.0",
+      "hashPath": "consoletables.2.5.0.nupkg.sha512"
+    },
+    "EasyConsole/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fEBI56S+m8g3VXRFHYxf9a9VUmBAkT8WZXFpRVou7cDTWmAEaloSWyXPHG7tHfUt+wkBovc9GSzZohuYdpWcsQ==",
+      "path": "easyconsole/1.1.0",
+      "hashPath": "easyconsole.1.1.0.nupkg.sha512"
+    }
+  }
+}
