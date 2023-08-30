@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -91,6 +92,32 @@ namespace HospitalManagmentSystem.Services
 
 
         #region Meet
+
+        public int AddMeet(int doctorNo, int pasientNo, string result)
+        {
+            if (string.IsNullOrEmpty(result))
+                throw new ArgumentNullException(nameof(result));
+
+            var doctor = Doctors.FirstOrDefault(d => d.No == doctorNo);
+
+            if (doctor is null)
+                throw new KeyNotFoundException();
+
+            var pasient = Pasients.FirstOrDefault(p => p.No == pasientNo);
+
+            if (pasient is null)
+                throw new KeyNotFoundException();
+
+            Meet meet = new();
+            meet.Doctor = doctor;
+            meet.Pasient = pasient;
+            meet.Result = result;
+
+            Meets.Add(meet);
+
+
+            return meet.No;
+        }
 
         public void DeleteMeet(int no)
         {
