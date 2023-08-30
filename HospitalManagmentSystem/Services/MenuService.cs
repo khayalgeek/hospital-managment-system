@@ -1,6 +1,5 @@
-﻿using System;
-using System.Globalization;
-using ConsoleTables;
+﻿using ConsoleTables;
+using System;
 
 namespace HospitalManagmentSystem.Services
 {
@@ -9,6 +8,7 @@ namespace HospitalManagmentSystem.Services
         private static HospitalService hospitalService = new();
 
         #region Display Tables
+
         public static void DisplayDoctors()
         {
             var table = new ConsoleTable("No", "Fullname", "Department", "Session Price");
@@ -41,9 +41,11 @@ namespace HospitalManagmentSystem.Services
             }
             table.Write();
         }
-        #endregion
 
-        #region Add Methods 
+        #endregion Display Tables
+
+        #region Add Methods
+
         public static void AddDoctorMenu()
         {
             Console.WriteLine("Insert Fullname");
@@ -65,7 +67,6 @@ namespace HospitalManagmentSystem.Services
                 Console.WriteLine("Please try again");
                 Console.WriteLine(e.Message);
             }
-
         }
 
         public static void AddPasientMenu()
@@ -110,12 +111,44 @@ namespace HospitalManagmentSystem.Services
                 Console.WriteLine(e.Message);
             }
         }
-        #endregion
+
+        #endregion Add Methods
 
         #region Delete Methods
-       
 
-       
-        #endregion
+        public static void DeleteItemType(string type)
+        {
+            Console.WriteLine("Insert No:");
+            string noStr = Console.ReadLine();
+            try
+            {
+                switch (type)
+                {
+                    case "doctor":
+                        hospitalService.DeleteDoctor(int.Parse(noStr));
+                        break;
+
+                    case "pasient":
+                        hospitalService.DeletePasient(int.Parse(noStr));
+                        break;
+
+                    case "meeting":
+                        hospitalService.DeleteMeet(int.Parse(noStr));
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Please try again");
+                Console.WriteLine(e.Message); ;
+            }
+           
+        }
+
+        #endregion Delete Methods
+
+      
     }
 }

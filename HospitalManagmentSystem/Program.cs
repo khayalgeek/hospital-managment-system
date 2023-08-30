@@ -7,23 +7,23 @@ namespace HospitalManagmentSystem
         private static void Main(string[] args)
         {
             var menu = new EasyConsole.Menu()
-                .Add("Doctors", () => MenuService.DisplayDoctors()) 
+                .Add("Doctors", () => MenuService.DisplayDoctors())
 
                 .Add("Add Doctor", () => MenuService.AddDoctorMenu())
 
-                .Add("Delete Doctor", () => MenuService.DeleteDoctorMenu())
+                .Add("Delete Doctor", () => MenuService.DeleteItemType("doctor"))
 
                 .Add("Pasients", () => MenuService.DisplayPasient())
 
                 .Add("Add Pasient", () => MenuService.AddPasientMenu())
 
-                .Add("Delete Pasient", () => MenuService.DeletePasientMenu())
+                .Add("Delete Pasient", () => MenuService.DeleteItemType("pasient"))
 
                 .Add("Meetings", () => MenuService.DisplayMeetings())
 
                 .Add("Add Meeting", () => MenuService.AddMeetingMenu())
 
-                .Add("Delete Meeting", () => MenuService.DeleteMeetingMenu())
+                .Add("Delete Meeting", () => MenuService.DeleteItemType("meeting"))
 
                 .Add("Report", () => MenuService.DisplayDoctors())
 
