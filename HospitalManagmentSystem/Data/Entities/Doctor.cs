@@ -5,6 +5,7 @@ namespace HospitalManagmentSystem.Data.Entities
     public class Doctor : BaseEntity
     {
         private static int _count = 0;
+
         public Doctor()
         {
             _count++;

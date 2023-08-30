@@ -1,22 +1,15 @@
 ﻿using HospitalManagmentSystem.Data.Entities;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HospitalManagmentSystem.Services
 {
     public class HospitalService
     {
-        public List<Doctor> Doctors  { get; private set; }
+        public List<Doctor> Doctors { get; private set; }
         public List<Pasient> Pasients { get; private set; }
         public List<Meet> Meets { get; private set; }
-
 
         public HospitalService()
         {
@@ -25,8 +18,8 @@ namespace HospitalManagmentSystem.Services
             Meets = new();
         }
 
-
         #region Doctor
+
         public int AddDoctor(string fullname, string department, double pricePerSession)
         {
             if (string.IsNullOrEmpty(fullname))
@@ -54,10 +47,9 @@ namespace HospitalManagmentSystem.Services
                 throw new KeyNotFoundException();
 
             Doctors.RemoveAt(index);
-               
         }
-        #endregion
 
+        #endregion Doctor
 
         #region Pasient
 
@@ -67,12 +59,12 @@ namespace HospitalManagmentSystem.Services
                 throw new ArgumentNullException(nameof(fullname));
 
             if (string.IsNullOrEmpty(phone))
-                throw new ArgumentNullException(nameof(phone)); 
+                throw new ArgumentNullException(nameof(phone));
 
             Pasient pasient = new();
             pasient.Fullname = fullname;
             pasient.Phone = phone;
-            
+
             Pasients.Add(pasient);
 
             return pasient.No;
@@ -82,14 +74,13 @@ namespace HospitalManagmentSystem.Services
         {
             int index = Pasients.FindIndex(pas => pas.No == no);
 
-            if(index == -1) 
+            if (index == -1)
                 throw new KeyNotFoundException();
 
             Doctors.RemoveAt(index);
         }
 
-        #endregion
-
+        #endregion Pasient
 
         #region Meet
 
@@ -115,7 +106,6 @@ namespace HospitalManagmentSystem.Services
 
             Meets.Add(meet);
 
-
             return meet.No;
         }
 
@@ -128,6 +118,22 @@ namespace HospitalManagmentSystem.Services
 
             Doctors.RemoveAt(index);
         }
+
+        #endregion Meet
+
+        #region Report
+
+        public Report RecordRepord(DateTime startDate, DateTime finishDate)
+        {
+            var meets = Meets.Where(m => m.Date >= startDate && m.Date <= finishDate);
+
+            Report report = new();
+            report.MeetCount = meets.Count();
+            report.Income = meets.Sum(m => m.Doctor.PricePerSession);
+
+            return report;     
+        }
+
         #endregion
     }
 }
