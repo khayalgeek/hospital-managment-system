@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "sVZJeG+KLZWXvur7sl0Mume6IIwphHYfd2U32NbvXaEtczYdiYD3WQR32wvarwheuQ+XTFrIZVefsG2xaxLraQ==",
+  "dgSpecHash": "5xMgaQs308BJMPkAIk4W9f3HicSschz9A5QOda3tpPnlAHqPBbAEkrA4NoxQEaZHwdvf3BbWh1YGG/alQqAM7w==",
   "success": true,
   "projectFilePath": "C:\\Users\\khaya\\OneDrive\\Desktop\\HospitalManagmentSystem\\HospitalManagmentSystem\\HospitalManagmentSystem.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\khaya\\.nuget\\packages\\consoletables\\2.5.0\\consoletables.2.5.0.nupkg.sha512",
+    "C:\\Users\\khaya\\.nuget\\packages\\easyconsole\\1.1.0\\easyconsole.1.1.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EasyConsole 1.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "EasyConsole",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

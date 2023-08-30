@@ -1,10 +1,12 @@
-﻿using System;
+﻿using HospitalManagmentSystem.Services;
+using System;
 
 namespace HospitalManagmentSystem
 {
-    internal class Program
+    public class Program
     {
-        private static void Main(string[] args)
+       
+        static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
         }
