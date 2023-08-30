@@ -88,5 +88,19 @@ namespace HospitalManagmentSystem.Services
         }
 
         #endregion
+
+
+        #region Meet
+
+        public void DeleteMeet(int no)
+        {
+            int index = Meets.FindIndex(pas => pas.No == no);
+
+            if (index == -1)
+                throw new KeyNotFoundException();
+
+            Doctors.RemoveAt(index);
+        }
+        #endregion
     }
 }
