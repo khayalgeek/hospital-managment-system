@@ -131,9 +131,9 @@ namespace HospitalManagmentSystem.Services
             report.MeetCount = meets.Count();
             report.Income = meets.Sum(m => m.Doctor.PricePerSession);
 
-            return report;     
+            return report;
         }
 
-        #endregion
+        #endregion Report
     }
 }
