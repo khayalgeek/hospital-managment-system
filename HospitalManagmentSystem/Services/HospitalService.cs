@@ -24,7 +24,7 @@ namespace HospitalManagmentSystem.Services
         }
 
 
-
+        #region Doctor
         public int AddDoctor(string fullname, string department, double pricePerSession)
         {
             if (string.IsNullOrEmpty(fullname))
@@ -36,8 +36,6 @@ namespace HospitalManagmentSystem.Services
             if (pricePerSession <= 0)
                 throw new ArgumentOutOfRangeException(nameof(pricePerSession));
 
-
-
             Doctor doctor = new();
             doctor.Fullname = fullname;
             doctor.Department = department;
@@ -46,5 +44,38 @@ namespace HospitalManagmentSystem.Services
 
             return doctor.No;
         }
+
+        public void DeleteDoctor(int no)
+        {
+            int index = Doctors.FindIndex(d => d.No == no);
+            if (index == -1)
+                throw new KeyNotFoundException();
+
+            Doctors.RemoveAt(index);
+               
+        }
+        #endregion
+
+
+        #region Pasient
+
+        public int AddPasient(string fullname, string phone)
+        {
+            if (string.IsNullOrEmpty(fullname))
+                throw new ArgumentNullException(nameof(fullname));
+
+            if (string.IsNullOrEmpty(phone))
+                throw new ArgumentNullException(nameof(phone)); 
+
+            Pasient pasient = new();
+            pasient.Fullname = fullname;
+            pasient.Phone = phone;
+
+            Pasients.Add(pasient);
+
+            return pasient.No;
+        }
+
+        #endregion
     }
 }
