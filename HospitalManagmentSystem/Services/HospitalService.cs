@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -70,10 +71,20 @@ namespace HospitalManagmentSystem.Services
             Pasient pasient = new();
             pasient.Fullname = fullname;
             pasient.Phone = phone;
-
+            
             Pasients.Add(pasient);
 
             return pasient.No;
+        }
+
+        public void DeletePasient(int no)
+        {
+            int index = Pasients.FindIndex(pas => pas.No == no);
+
+            if(index == -1) 
+                throw new KeyNotFoundException();
+
+            Doctors.RemoveAt(index);
         }
 
         #endregion
