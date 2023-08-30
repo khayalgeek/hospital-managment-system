@@ -1,4 +1,5 @@
 ﻿using ConsoleTables;
+using HospitalManagmentSystem.Data.Entities;
 using System;
 
 namespace HospitalManagmentSystem.Services
@@ -54,7 +55,7 @@ namespace HospitalManagmentSystem.Services
             Console.WriteLine("Insert Department");
             string department = Console.ReadLine();
 
-            Console.WriteLine("Insert Department");
+            Console.WriteLine("Insert Price");
             string priceStr = Console.ReadLine();
 
             try
@@ -149,6 +150,26 @@ namespace HospitalManagmentSystem.Services
 
         #endregion Delete Methods
 
-      
+        #region
+        public static void ReportMenu()
+        {
+            Console.WriteLine("Enter start date(dd.mm.yyyy)");
+            string startDateStr =Console.ReadLine();
+
+            Console.WriteLine("Enter end date(dd.mm.yyyy)");
+            string endDateStr = Console.ReadLine();
+
+            try
+            {
+               Report report = hospitalService.RecordReport(DateTime.Parse(startDateStr), DateTime.Parse(endDateStr));
+               Console.WriteLine("Meeting count {0}, total income {1}", report.MeetCount, report.Income);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Please try again");
+                Console.WriteLine(e.Message);
+            }
+        }
+        #endregion
     }
 }

@@ -123,7 +123,7 @@ namespace HospitalManagmentSystem.Services
 
         #region Report
 
-        public Report RecordRepord(DateTime startDate, DateTime finishDate)
+        public Report RecordReport(DateTime startDate, DateTime finishDate)
         {
             var meets = Meets.Where(m => m.Date >= startDate && m.Date <= finishDate);
 
